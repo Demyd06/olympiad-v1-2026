@@ -8,15 +8,23 @@ public class Task1 {
      *
      */
     public static int reverseNumber(int number) {
-        // TODO: implement me
-        return 0;
-    }
+        if (number == 0) {
+            return 0;
+        }
+        int reversed =0;
 
-    /**
-     * can: test your code
-     *
-     */
+        while (number != 0) {
+            int digit = number % 10;
+            reversed = reversed * 10 + digit;
+            number /= 10;
+        }
+       return reversed;
+
+    }
     public static void main(String[] args) {
-        //TODO: test me
+        System.out.println(reverseNumber(1234));
+        System.out.println(reverseNumber(-580));
+        System.out.println(reverseNumber(1000));
+        System.out.println(reverseNumber(0));
     }
 }

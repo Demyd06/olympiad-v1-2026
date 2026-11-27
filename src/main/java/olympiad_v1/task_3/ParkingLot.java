@@ -1,8 +1,5 @@
 package olympiad_v1.task_3;
 
-/**
- * YOUR WORK HERE
- */
 public class ParkingLot {
     private final ParkingSpot[] spots;
 
@@ -10,28 +7,56 @@ public class ParkingLot {
         this.spots = spots;
     }
 
-    /**
-     * Parks the vehicle in the LEAST suitable available spot (spotSize >= vehicle.getSize()).
-     * If there are multiple such spots, it selects the first one in the array.
-     */
     public boolean parkVehicle(Vehicle vehicle) {
-        // TODO: implement me
-        return false;
-    }
+        if (vehicle == null || spots == null) {
+            return false;
+        }
+        int vehicleSize = vehicle.getSize();
+        ParkingSpot bestSpot = null;
+        int minSpotSize = Integer.MAX_VALUE;
 
-    /**
-     * Frees the space at spotNumber.
-     */
-    public boolean leaveSpot(int spotNumber) {
-        // TODO: implement me
+        for (int i = 0; i < spots.length; i++) {
+            ParkingSpot spot = spots[i];
+            if (spot != null && spot.getParkedVehicle() == null && spot.getSpotSize() >= vehicleSize) {
+                if (spot.getSpotSize() < minSpotSize) {
+                    minSpotSize = spot.getSpotSize();
+                    bestSpot = spot;
+                }
+            }
+        }
+        if (bestSpot == null) {
+            return false;
+        }
+        bestSpot.setParkedVehicle(vehicle);
         return false;
-    }
 
-    /**
-     * Returns the number of free spaces of the exact specified size `size`.
-     */
-    public int getAvailableSpotsCount(int size) {
-        // TODO: implement me
-        return 0;
+        public boolean leaveSpot( int spotNumber){
+            if (spots == null) {
+                return false;
+            }
+            for (int i = 0; i < spots.length; i++) {
+                ParkingSpot spot = spots[i];
+                if (spot != null && spot.getSpotNumber() == spotNumber) {
+                    if (spot.getParkedVehicle() != null) ;
+                    spot.setParkedVehicle(null);
+                    return true;
+                }
+            }
+            return false;
+
+            public int getAvailableSpotsCount ( int size){
+                if (spots == null) {
+                    return 0;
+                }
+                int count = 0;
+                for (int i=0; i <spots.length; i++){
+                    ParkingSpot spot = spots[i];
+                    if (spot != null && spot.getParkedVehicle() == null && spot.getSpotSize() == size) {
+                        count++;
+                    }
+                }
+                return count;
+            }
+        }
     }
 }
