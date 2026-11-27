@@ -10,13 +10,12 @@ public class Task1 {
      *
      */
     public static int reverseNumber(int number) {
+        int reversedNum = 0;
         while(number > 0) {
-            number = number % 10;
-            System.out.println(number);
+            reversedNum = number % 10;
+            System.out.print(reversedNum);
             number = number / 10;
-            System.out.println(number);
         }
-        System.out.println(number);
         return 0;
     }
 
