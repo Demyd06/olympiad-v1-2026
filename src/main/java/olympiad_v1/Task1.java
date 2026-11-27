@@ -9,11 +9,10 @@ public class Task1 {
      */
     public static int reverseNumber(int number) {
         int result = 0;
-        while (number != 0) ;
+        while (number != 0)
         {
-            int digit = number % 10;
-            result = result * 10 + digit;
-            number = number / 10;
+            result = result * 10 + number % 10;
+            number /=  10;
 
         }
         return result;
