@@ -15,7 +15,16 @@ public class ParkingLot {
      * If there are multiple such spots, it selects the first one in the array.
      */
     public boolean parkVehicle(Vehicle vehicle) {
-        // TODO: implement me
+        if (vehicle == null || spots == null) {
+            return false;
+        }
+
+        for (ParkingSpot spot : spots) {
+            if (spot != null && spot.getSpotSize() >= vehicle.getSize()) {
+                spot.setParkedVehicle(vehicle);
+                return true;
+            }
+        }
         return false;
     }
 
