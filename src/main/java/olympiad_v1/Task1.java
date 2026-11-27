@@ -28,3 +28,4 @@ public class Task1 {
         System.out.println("-580 -> " + reverseNumber(-580));
     }
 }
+// test
