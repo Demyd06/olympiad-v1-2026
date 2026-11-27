@@ -1,5 +1,7 @@
 package olympiad_v1;
 
+import java.util.HashSet;
+
 public class Task1 {
     /**
      * need: Reverses an integer | 3311 -> 1133
@@ -8,7 +10,12 @@ public class Task1 {
      *
      */
     public static int reverseNumber(int number) {
-        // TODO: implement me
+        int reversedNum = 0;
+        while(number > 0) {
+            reversedNum = number % 10;
+            System.out.print(reversedNum);
+            number = number / 10;
+        }
         return 0;
     }
 
@@ -17,6 +24,7 @@ public class Task1 {
      *
      */
     public static void main(String[] args) {
-        //TODO: test me
+        int number = 1234;
+        reverseNumber(number);
     }
 }
