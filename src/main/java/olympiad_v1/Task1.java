@@ -8,8 +8,15 @@ public class Task1 {
      *
      */
     public static int reverseNumber(int number) {
-        // TODO: implement me
-        return 0;
+        int reversed = 0;
+
+        while (number != 0) {
+            int digit = number % 10;
+            reversed = reversed * 10 + digit;
+            number /= 10;
+        }
+
+        return reversed;
     }
 
     /**
@@ -17,6 +24,8 @@ public class Task1 {
      *
      */
     public static void main(String[] args) {
-        //TODO: test me
+        System.out.println("1234 -> " + reverseNumber(1234));
+        System.out.println("-580 -> " + reverseNumber(-580));
     }
 }
+// test 2.0
